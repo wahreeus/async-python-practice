@@ -64,10 +64,6 @@ This repository contains 50 asynchronous Python practice exercises. The set is o
 | 49 | Bounded async crawler | Hard | Implementation | Crawl a graph with depth and per-host limits. |
 | 50 | Duplicate async cache fetches | Hard | **Debugging** | Ensure concurrent cache misses share one in-flight fetch. |
 
-## Suggested use
-
-Work through the problems in order if you want a gradual progression. For each exercise, first solve the task without looking up a complete solution, then test your program against the provided examples in the full exercise set. For debugging tasks, focus on identifying the async-specific issue before rewriting the code.
-
 ## Topics covered
 
 `async` / `await`, `asyncio.create_task`, `asyncio.gather`, `asyncio.as_completed`, timeouts, cancellation, queues, semaphores, locks, rate limiting, retries, producer-consumer patterns, worker pools, task dependencies, backpressure, and concurrent I/O simulation.
