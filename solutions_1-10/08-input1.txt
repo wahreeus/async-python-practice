@@ -1,0 +1,4 @@
+20 3
+auth 5
+report 25
+cache 20

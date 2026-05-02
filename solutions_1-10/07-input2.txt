@@ -1,0 +1,4 @@
+3
+alpha 15
+beta 5
+gamma 10

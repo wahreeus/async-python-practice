@@ -1,0 +1,4 @@
+3
+pdf 40
+email 10
+cache 25

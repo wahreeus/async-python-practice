@@ -1,0 +1,4 @@
+3
+slow 30
+fast 5
+mid 15
