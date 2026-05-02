@@ -3,13 +3,17 @@ import sys
 
 
 
-# Single-digit millisecond sleeps produce inconsistent completion order due to asyncio scheduling.
+# Single-digit millisecond sleeps can produce inconsistent completion order due to asyncio scheduling.
+# This sensitivity has been observed using asyncio.sleep(delay_ms/500) with sample input 1, where
+# repeated runs may produce different output orders, such as A C D B or A C B D.
+#
+# Stable performance was observed using asyncio.sleep(delay_ms/100).
 
 
 
 async def process_task(semaphore: asyncio.Semaphore, job_id: str, delay_ms: int) -> str:
     async with semaphore:
-        await asyncio.sleep(delay_ms / 1000)
+        await asyncio.sleep(delay_ms/1000)
         return job_id
 
 
