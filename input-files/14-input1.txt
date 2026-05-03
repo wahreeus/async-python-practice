@@ -1,0 +1,5 @@
+4
+primary 30 FAIL
+replica-a 25 OK
+replica-b 5 FAIL
+cache 40 OK

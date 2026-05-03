@@ -1,0 +1,5 @@
+4
+alpha 30
+beta 5
+gamma 15
+delta 5
