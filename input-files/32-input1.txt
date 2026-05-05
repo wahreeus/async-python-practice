@@ -1,0 +1,6 @@
+5
+fetch 10 -
+auth 5 -
+parse 4 fetch
+store 3 fetch,auth
+notify 1 store
