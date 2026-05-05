@@ -3,7 +3,7 @@ import sys
 
 
 
-async def process_task(job_id, delay_ms, outcome):
+async def process_task(job_id: str, delay_ms: str, outcome: str) -> str:
     delay_s = float(delay_ms) / 1000
     await asyncio.sleep(delay_s)
     if outcome == "OK":
