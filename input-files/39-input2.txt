@@ -1,0 +1,4 @@
+3
+x 5 FAIL
+y 5 OK
+z 9 OK

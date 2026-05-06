@@ -1,0 +1,5 @@
+4
+a 5 OK
+b 30 OK
+c 10 FAIL
+d 1 OK

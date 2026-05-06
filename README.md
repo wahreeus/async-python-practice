@@ -67,3 +67,7 @@ This repository contains 50 asynchronous Python practice exercises. The set is o
 ## Topics covered
 
 `async` / `await`, `asyncio.create_task`, `asyncio.gather`, `asyncio.as_completed`, timeouts, cancellation, queues, semaphores, locks, rate limiting, retries, producer-consumer patterns, worker pools, task dependencies, backpressure, and concurrent I/O simulation.
+
+## Note
+
+Many exercises have a straightforward synchronous solution, but they are intended to be interpreted through an async lens for practice purposes.
