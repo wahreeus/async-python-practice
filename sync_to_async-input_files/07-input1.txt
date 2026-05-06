@@ -1,0 +1,4 @@
+1.0 3
+fast https://httpbin.org/delay/0
+slow https://httpbin.org/delay/2
+json https://httpbin.org/json

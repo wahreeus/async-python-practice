@@ -1,0 +1,3 @@
+2
+logo https://bad.example/logo.png,https://httpbin.org/image/png
+json https://httpbin.org/status/500,https://httpbin.org/json

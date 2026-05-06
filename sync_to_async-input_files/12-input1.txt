@@ -1,0 +1,4 @@
+3
+post https://jsonplaceholder.typicode.com/posts/1 title
+user https://jsonplaceholder.typicode.com/users/1 username
+todo https://jsonplaceholder.typicode.com/todos/1 completed

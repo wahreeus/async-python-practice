@@ -1,0 +1,3 @@
+2
+python https://www.python.org/robots.txt
+rfc https://www.rfc-editor.org/robots.txt

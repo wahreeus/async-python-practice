@@ -1,0 +1,4 @@
+3
+slow https://httpbin.org/delay/2
+fast https://httpbin.org/delay/0
+mid https://httpbin.org/delay/1

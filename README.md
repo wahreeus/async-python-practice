@@ -1,18 +1,38 @@
 # Async Python Practice
 
-This repository contains 50 asynchronous Python practice exercises. The set is ordered in roughly ascending difficulty and focuses on practical `asyncio` patterns such as tasks, gathering, queues, timeouts, cancellation, rate limiting, and async pipelines.
+This repository contains two complementary sets of Python concurrency exercises:
+
+1. **Async Python Practice** — 50 `asyncio` implementation and debugging exercises focused on practical async patterns.
+2. **Sync To Async Python Practice** — 20 transformation exercises where an existing blocking Python program must be rewritten as an async version.
+
+Together, the sets cover core `asyncio` mechanics, task orchestration, queues, timeouts, cancellation, rate limiting, worker pools, async pipelines, and the practical skill of converting synchronous I/O-heavy code into asynchronous code.
 
 ## Structure
 
-- **50 exercises total**
-- **40 implementation tasks** and **10 debugging tasks**
-- Difficulty progression: **Easy → Easy-medium → Medium → Medium-hard → Hard**
+- **70 exercises total**
+  - **50 core async exercises**
+  - **20 sync-to-async transformation exercises**
+- Core async set:
+  - **40 implementation tasks**
+  - **10 debugging tasks**
+  - Difficulty progression: **Easy → Easy-medium → Medium → Medium-hard → Hard**
+- Sync-to-async set:
+  - **20 transformation tasks** based on blocking programs
+  - Difficulty progression: **Easy → Easy-medium → Medium → Medium-hard → Hard**
+  - Focuses on converting real-world synchronous I/O patterns into async designs
 - Debugging tasks use valid Python syntax and focus on logical or runtime issues rather than formatting or syntax errors
 
-## Exercise index
+## Exercise sets
+
+| Set | File | Exercises | Focus |
+|---|---|:---:|---|
+| Async Python Practice | `async-python-practice.pdf` | 50 | Standalone async implementation and debugging tasks. |
+| Sync To Async Python Practice | `sync_to_async-python-practice.pdf` | 20 | Transform blocking HTTP, parsing, caching, and pipeline programs into async versions. |
+
+## Async Python Practice exercise index
 
 | # | Exercise | Level | Type | Main focus |
-|---:|---|---|---|---|
+|---:|---|:---:|:---:|---|
 | 1 | Awaited mock requests | Easy | Implementation | Await simple simulated I/O requests in input order. |
 | 2 | Completion order with create_task | Easy | Implementation | Create tasks and report results by completion order. |
 | 3 | Gathered API statuses | Easy | Implementation | Use gather while preserving input-order results. |
@@ -64,10 +84,35 @@ This repository contains 50 asynchronous Python practice exercises. The set is o
 | 49 | Bounded async crawler | Hard | Implementation | Crawl a graph with depth and per-host limits. |
 | 50 | Duplicate async cache fetches | Hard | **Debugging** | Ensure concurrent cache misses share one in-flight fetch. |
 
+## Sync To Async Python Practice exercise index
+
+| # | Exercise | Level | Type | Main focus |
+|---:|---|:---:|:---:|---|
+| 1 | Page status and size report | Easy | Transformation | Fetch multiple pages concurrently while preserving input-order output. |
+| 2 | Completion-order page fetches | Easy | Transformation | Start all fetches first and print each result as soon as it completes. |
+| 3 | Bounded JSON record lookup | Easy-medium | Transformation | Convert a sequential JSON client into a bounded-concurrency async client. |
+| 4 | Repository metadata report | Easy-medium | Transformation | Fetch repository metadata concurrently while keeping formatting logic explicit. |
+| 11 | Bounded HEAD request checker | Easy-medium | Transformation | Convert blocking HEAD checks into bounded async checks. |
+| 5 | Package metadata collector | Medium | Transformation | Fetch package metadata concurrently while preserving input-order reporting. |
+| 6 | HTML title scraper | Medium | Transformation | Convert a blocking title scraper into concurrent async page fetches. |
+| 7 | Per-request timeout report | Medium | Transformation | Apply per-request timeouts without stopping unrelated requests. |
+| 12 | JSON field extractor | Medium | Transformation | Fetch JSON documents concurrently while keeping field extraction separate. |
+| 13 | Download checksum report | Medium | Transformation | Download files concurrently while keeping deterministic hashing and ordered output. |
+| 14 | CSV row counter | Medium | Transformation | Overlap CSV downloads while parsing each document into a row count. |
+| 8 | Sequential retry chains | Medium-hard | Transformation | Run different retry chains concurrently while keeping attempts sequential per row. |
+| 9 | Legacy downloader bridge | Medium-hard | Transformation | Use a blocking helper safely from async code without changing the helper itself. |
+| 15 | Paginated API chains | Medium-hard | Transformation | Run collections concurrently while fetching pages sequentially inside each collection. |
+| 16 | Per-origin request queues | Medium-hard | Transformation | Allow different origins to run concurrently while keeping same-origin requests sequential. |
+| 10 | Shared webpage cache | Hard | Transformation | Share one in-flight fetch for duplicate URLs while allowing distinct URLs to proceed. |
+| 17 | Mirror race for assets | Hard | Transformation | Race mirrors for each asset and keep the first successful response. |
+| 18 | Freshness verifier with retries | Hard | Transformation | Check resources concurrently while keeping retry decisions local to each resource. |
+| 19 | Blocking parser bridge | Hard | Transformation | Call a blocking parser from async code without freezing other downloads. |
+| 20 | Three-stage report pipeline | Hard | Transformation | Build a concurrent download-parse-store pipeline with bounded parse and store stages. |
+
 ## Topics covered
 
-`async` / `await`, `asyncio.create_task`, `asyncio.gather`, `asyncio.as_completed`, timeouts, cancellation, queues, semaphores, locks, rate limiting, retries, producer-consumer patterns, worker pools, task dependencies, backpressure, and concurrent I/O simulation.
+`async` / `await`, `asyncio.create_task`, `asyncio.gather`, `asyncio.as_completed`, `asyncio.wait_for`, `asyncio.shield`, timeouts, cancellation, queues, priority queues, semaphores, locks, rate limiting, retries, producer-consumer patterns, worker pools, task dependencies, backpressure, async pipelines, shared in-flight work, cache coordination, and bridging blocking code into async programs.
 
 ## Note
 
-Many exercises have a straightforward synchronous solution, but they are intended to be interpreted through an async lens for practice purposes.
+Many exercises have a straightforward synchronous solution, but they are intended to be interpreted through an async lens for practice purposes. The sync-to-async exercises are especially meant to practice recognizing where blocking I/O, sequential loops, shared caches, and staged pipelines can be redesigned with async concurrency.
