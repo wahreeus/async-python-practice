@@ -1,3 +1,4 @@
-3 2
-primary https://httpbin.org/status/500,https://httpbin.org/status/200
-broken https://httpbin.org/status/503,https://httpbin.org/status/502
+1.0 3
+fast https://httpbin.org/delay/0
+slow https://httpbin.org/delay/2
+json https://httpbin.org/json

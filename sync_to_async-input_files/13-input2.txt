@@ -1,2 +1,2 @@
 1
-json https://httpbin.org/json
+python https://www.python.org/robots.txt

@@ -1,34 +1,42 @@
+import re
 import sys
 import requests
-DEFAULT_HEADERS = {"User-Agent": "sync-to-async-practice"}
-def build_request(url, timeout_s):
-    return {
-        "url": url,
-        "headers": DEFAULT_HEADERS,
-        "timeout": timeout_s,
-    }
-def run_check(label, url, timeout_s):
-    try:
-        request_kwargs = build_request(url, timeout_s)
-        response = requests.get(**request_kwargs)
-        response.raise_for_status()
-        return f"{label} OK"
-    except requests.Timeout:
-        return f"{label} TIMEOUT"
+
+TITLE_RE = re.compile(
+    r"<title>(.*?)</title>", re.I | re.S
+)
+TIMEOUT = 10
+
+def normalize_title(text):
+    return " ".join(text.split())
+
+def extract_title(html_text):
+    match = TITLE_RE.search(html_text)
+    if not match:
+        return "NO_TITLE"
+    title = match.group(1)
+    return normalize_title(title)
+
+def fetch_title(label, url):
+    response = requests.get(url, timeout=TIMEOUT)
+    response.raise_for_status()
+    title = extract_title(response.text)
+    return f"{label} {title}"
+
 def read_rows(count):
     rows = []
     for _ in range(count):
         label, url = sys.stdin.readline().split()
         rows.append((label, url))
     return rows
+
 def main():
-    timeout_s, n = sys.stdin.readline().split()
-    timeout_s = float(timeout_s)
-    n = int(n)
+    n = int(sys.stdin.readline())
     rows = read_rows(n)
-    lines = []
+    results = []
     for label, url in rows:
-        lines.append(run_check(label, url, timeout_s))
-    for line in lines:
+        results.append(fetch_title(label, url))
+    for line in results:
         print(line)
+
 main()

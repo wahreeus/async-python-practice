@@ -1,4 +1,4 @@
 3
-h1 x https://httpbin.org/get
-h1 y https://httpbin.org/get
-h2 z https://example.com/
+a https://jsonplaceholder.typicode.com/
+b https://jsonplaceholder.typicode.com/
+c https://httpbin.org/

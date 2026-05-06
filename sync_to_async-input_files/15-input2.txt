@@ -1,2 +1,4 @@
-1
-users https://jsonplaceholder.typicode.com/users 1
+3
+h1 x https://httpbin.org/get
+h1 y https://httpbin.org/get
+h2 z https://example.com/

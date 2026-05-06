@@ -1,35 +1,42 @@
 import sys
 import requests
-from collections import defaultdict
+
 TIMEOUT = 10
-def fetch_status(label, url):
+fetches = 0
+cache = {}
+
+def fetch_status(url):
+    global fetches
+    fetches += 1
     response = requests.get(url, timeout=TIMEOUT)
     response.raise_for_status()
-    return label, response.status_code
+    return response.status_code
+
+def resolve_status(url):
+    if url not in cache:
+        cache[url] = fetch_status(url)
+    return cache[url]
+
 def read_rows(count):
     rows = []
-    for index in range(count):
-        origin, label, url = sys.stdin.readline().split()
-        rows.append((index, origin, label, url))
+    for _ in range(count):
+        label, url = sys.stdin.readline().split()
+        rows.append((label, url))
     return rows
-def group_by_origin(rows):
-    groups = defaultdict(list)
-    for row in rows:
-        _, origin, _, _ = row
-        groups[origin].append(row)
-    return groups
-def run_group(rows):
-    results = []
-    for _, origin, label, url in rows:
-        results.append(fetch_status(label, url))
-    return results
+
+def build_output(rows):
+    lines = []
+    for label, url in rows:
+        status_code = resolve_status(url)
+        lines.append(f"{label} {status_code}")
+    return lines
+
 def main():
     n = int(sys.stdin.readline())
     rows = read_rows(n)
-    groups = group_by_origin(rows)
-    output = []
-    for origin in sorted(groups):
-        output.extend(run_group(groups[origin]))
-    for label, status_code in output:
-        print(f"{label} {status_code}")
+    output = build_output(rows)
+    for line in output:
+        print(line)
+    print("FETCHES", fetches)
+
 main()

@@ -1,4 +1,3 @@
-2 3
-py https://www.python.org/
-json https://httpbin.org/json
-robots https://www.python.org/robots.txt
+2
+a https://example.com/a.csv
+b https://example.com/b.csv

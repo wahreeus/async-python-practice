@@ -1,4 +1,4 @@
 2 3
-requests
-aiohttp
-fastapi
+py https://www.python.org/
+json https://httpbin.org/json
+robots https://www.python.org/robots.txt

@@ -1,35 +1,39 @@
+import hashlib
 import sys
 import requests
+
 TIMEOUT = 10
-fetches = 0
-cache = {}
-def fetch_status(url):
-    global fetches
-    fetches += 1
+
+def digest_prefix(raw_bytes):
+    digest = hashlib.sha256(raw_bytes).hexdigest()
+    return digest[:12]
+
+def download(label, url):
     response = requests.get(url, timeout=TIMEOUT)
     response.raise_for_status()
-    return response.status_code
-def resolve_status(url):
-    if url not in cache:
-        cache[url] = fetch_status(url)
-    return cache[url]
+    raw_bytes = response.content
+    size = len(raw_bytes)
+    prefix = digest_prefix(raw_bytes)
+    return f"{label} {size} {prefix}"
+
 def read_rows(count):
     rows = []
     for _ in range(count):
         label, url = sys.stdin.readline().split()
         rows.append((label, url))
     return rows
-def build_output(rows):
+
+def build_report(rows):
     lines = []
     for label, url in rows:
-        status_code = resolve_status(url)
-        lines.append(f"{label} {status_code}")
+        lines.append(download(label, url))
     return lines
+
 def main():
     n = int(sys.stdin.readline())
     rows = read_rows(n)
-    output = build_output(rows)
-    for line in output:
+    report = build_report(rows)
+    for line in report:
         print(line)
-    print("FETCHES", fetches)
+
 main()

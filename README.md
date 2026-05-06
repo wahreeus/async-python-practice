@@ -92,18 +92,18 @@ Together, the sets cover core `asyncio` mechanics, task orchestration, queues, t
 | 2 | Completion-order page fetches | Easy | Transformation | Start all fetches first and print each result as soon as it completes. |
 | 3 | Bounded JSON record lookup | Easy-medium | Transformation | Convert a sequential JSON client into a bounded-concurrency async client. |
 | 4 | Repository metadata report | Easy-medium | Transformation | Fetch repository metadata concurrently while keeping formatting logic explicit. |
-| 11 | Bounded HEAD request checker | Easy-medium | Transformation | Convert blocking HEAD checks into bounded async checks. |
-| 5 | Package metadata collector | Medium | Transformation | Fetch package metadata concurrently while preserving input-order reporting. |
-| 6 | HTML title scraper | Medium | Transformation | Convert a blocking title scraper into concurrent async page fetches. |
-| 7 | Per-request timeout report | Medium | Transformation | Apply per-request timeouts without stopping unrelated requests. |
-| 12 | JSON field extractor | Medium | Transformation | Fetch JSON documents concurrently while keeping field extraction separate. |
-| 13 | Download checksum report | Medium | Transformation | Download files concurrently while keeping deterministic hashing and ordered output. |
-| 14 | CSV row counter | Medium | Transformation | Overlap CSV downloads while parsing each document into a row count. |
-| 8 | Sequential retry chains | Medium-hard | Transformation | Run different retry chains concurrently while keeping attempts sequential per row. |
-| 9 | Legacy downloader bridge | Medium-hard | Transformation | Use a blocking helper safely from async code without changing the helper itself. |
-| 15 | Paginated API chains | Medium-hard | Transformation | Run collections concurrently while fetching pages sequentially inside each collection. |
-| 16 | Per-origin request queues | Medium-hard | Transformation | Allow different origins to run concurrently while keeping same-origin requests sequential. |
-| 10 | Shared webpage cache | Hard | Transformation | Share one in-flight fetch for duplicate URLs while allowing distinct URLs to proceed. |
+| 5 | Bounded HEAD request checker | Easy-medium | Transformation | Convert blocking HEAD checks into bounded async checks. |
+| 6 | Package metadata collector | Medium | Transformation | Fetch package metadata concurrently while preserving input-order reporting. |
+| 7 | HTML title scraper | Medium | Transformation | Convert a blocking title scraper into concurrent async page fetches. |
+| 8 | Per-request timeout report | Medium | Transformation | Apply per-request timeouts without stopping unrelated requests. |
+| 9 | JSON field extractor | Medium | Transformation | Fetch JSON documents concurrently while keeping field extraction separate. |
+| 10 | Download checksum report | Medium | Transformation | Download files concurrently while keeping deterministic hashing and ordered output. |
+| 11 | CSV row counter | Medium | Transformation | Overlap CSV downloads while parsing each document into a row count. |
+| 12 | Sequential retry chains | Medium-hard | Transformation | Run different retry chains concurrently while keeping attempts sequential per row. |
+| 13 | Legacy downloader bridge | Medium-hard | Transformation | Use a blocking helper safely from async code without changing the helper itself. |
+| 14 | Paginated API chains | Medium-hard | Transformation | Run collections concurrently while fetching pages sequentially inside each collection. |
+| 15 | Per-origin request queues | Medium-hard | Transformation | Allow different origins to run concurrently while keeping same-origin requests sequential. |
+| 16 | Shared webpage cache | Hard | Transformation | Share one in-flight fetch for duplicate URLs while allowing distinct URLs to proceed. |
 | 17 | Mirror race for assets | Hard | Transformation | Race mirrors for each asset and keep the first successful response. |
 | 18 | Freshness verifier with retries | Hard | Transformation | Check resources concurrently while keeping retry decisions local to each resource. |
 | 19 | Blocking parser bridge | Hard | Transformation | Call a blocking parser from async code without freezing other downloads. |

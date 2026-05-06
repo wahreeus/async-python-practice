@@ -1,3 +1,5 @@
-2
-posts https://jsonplaceholder.typicode.com/posts 3
-comments https://jsonplaceholder.typicode.com/comments 2
+4
+api a1 https://httpbin.org/delay/1
+cdn c1 https://example.com/
+api a2 https://httpbin.org/get
+docs d1 https://docs.python.org/3/
