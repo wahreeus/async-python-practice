@@ -91,16 +91,16 @@ Together, the sets cover core `asyncio` mechanics, task orchestration, queues, t
 | 8 | Per-request timeout report | Medium | Transformation | Apply per-request timeouts without stopping unrelated requests. |
 | 9 | JSON field extractor | Medium | Transformation | Fetch JSON documents concurrently while keeping field extraction separate. |
 | 10 | Download checksum report | Medium | Transformation | Download files concurrently while keeping deterministic hashing and ordered output. |
-| 11 | CSV row counter | Medium | Transformation | Overlap CSV downloads while parsing each document into a row count. |
+| 11 | Album photo counter | Medium | Transformation | Fetch album photo documents concurrently and count each album before reporting. |
 | 12 | Sequential retry chains | Medium-hard | Transformation | Run different retry chains concurrently while keeping attempts sequential per row. |
 | 13 | Legacy downloader bridge | Medium-hard | Transformation | Use a blocking helper safely from async code without changing the helper itself. |
 | 14 | Paginated API chains | Medium-hard | Transformation | Run collections concurrently while fetching pages sequentially inside each collection. |
 | 15 | Per-origin request queues | Medium-hard | Transformation | Allow different origins to run concurrently while keeping same-origin requests sequential. |
 | 16 | Shared webpage cache | Hard | Transformation | Share one in-flight fetch for duplicate URLs while allowing distinct URLs to proceed. |
-| 17 | Mirror race for assets | Hard | Transformation | Race mirrors for each asset and keep the first successful response. |
+| 17 | Replica race for services | Hard | Transformation | Probe replicas concurrently for each service and keep the first healthy response. |
 | 18 | Freshness verifier with retries | Hard | Transformation | Check resources concurrently while keeping retry decisions local to each resource. |
-| 19 | Blocking parser bridge | Hard | Transformation | Call a blocking parser from async code without freezing other downloads. |
-| 20 | Three-stage report pipeline | Hard | Transformation | Build a concurrent download-parse-store pipeline with bounded parse and store stages. |
+| 19 | Blocking log parser bridge | Hard | Transformation | Call a blocking log parser from async code without freezing other downloads. |
+| 20 | Three-stage event pipeline | Hard | Transformation | Build a concurrent download-parse-store event pipeline with bounded parse and store stages. |
 
 ## Topics covered
 
