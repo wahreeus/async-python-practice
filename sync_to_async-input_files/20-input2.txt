@@ -1,2 +1,2 @@
 1 1 1
-q1 https://example.com/q1.json
+q1 https://httpbin.org/anything?count=30&active=true

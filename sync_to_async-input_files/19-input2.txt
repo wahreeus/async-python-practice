@@ -1,2 +1,2 @@
 1
-empty https://example.com/empty.txt
+clean https://httpbin.org/base64/SU5GTyBhbGwgT0s

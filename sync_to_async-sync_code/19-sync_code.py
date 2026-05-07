@@ -3,22 +3,30 @@ import requests
 
 TIMEOUT = 10
 
-def parse_numbers(text):
-    values = []
+
+def parse_log_levels(text):
+    warnings = 0
+    errors = 0
     for token in text.split():
-        if token.lstrip('-').isdigit():
-            values.append(int(token))
-    return values
+        level = token.strip().upper()
+        if level == "WARN":
+            warnings += 1
+        elif level == "ERROR":
+            errors += 1
+    return warnings, errors
+
 
 def download_text(url):
     response = requests.get(url, timeout=TIMEOUT)
     response.raise_for_status()
     return response.text
 
+
 def summarize(label, url):
     text = download_text(url)
-    values = parse_numbers(text)
-    return f"{label} {len(values)} {sum(values)}"
+    warnings, errors = parse_log_levels(text)
+    return f"{label} {warnings} {errors}"
+
 
 def read_rows(count):
     rows = []
@@ -26,6 +34,7 @@ def read_rows(count):
         label, url = sys.stdin.readline().split()
         rows.append((label, url))
     return rows
+
 
 def main():
     n = int(sys.stdin.readline())
@@ -35,5 +44,6 @@ def main():
         output.append(summarize(label, url))
     for line in output:
         print(line)
+
 
 main()

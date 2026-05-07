@@ -1,4 +1,4 @@
 2 1 3
-jan https://example.com/jan.json
-feb https://example.com/feb.json
-mar https://example.com/mar.json
+east https://httpbin.org/anything?count=12&active=true
+west https://httpbin.org/anything?count=0&active=true
+north https://httpbin.org/anything?count=9&active=true

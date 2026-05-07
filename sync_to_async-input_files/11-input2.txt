@@ -1,2 +1,2 @@
 1
-small https://example.com/small.csv
+tenth 10
