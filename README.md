@@ -22,13 +22,6 @@ Together, the sets cover core `asyncio` mechanics, task orchestration, queues, t
   - Focuses on converting real-world synchronous I/O patterns into async designs
 - Debugging tasks use valid Python syntax and focus on logical or runtime issues rather than formatting or syntax errors
 
-## Exercise sets
-
-| Set | File | Exercises | Focus |
-|---|---|:---:|---|
-| Async Python Practice | `async-python-practice.pdf` | 50 | Standalone async implementation and debugging tasks. |
-| Sync To Async Python Practice | `sync_to_async-python-practice.pdf` | 20 | Transform blocking HTTP, parsing, caching, and pipeline programs into async versions. |
-
 ## Async Python Practice exercise index
 
 | # | Exercise | Level | Type | Main focus |
